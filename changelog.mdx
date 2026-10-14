@@ -1,0 +1,126 @@
+---
+title: Changelog
+description: Version history with recent updates, new features, and changes.
+---
+
+## Recent Releases
+
+Stay updated with the latest improvements to Parent Search. Review release notes below to see new features, bug fixes, and enhancements that help you build and manage time capsules securely.
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added support for video message uploads to time capsules, with automatic transcoding for web playback.
+- Introduced privacy controls allowing capsule owners to set search visibility preferences.
+
+## Improvements
+
+- Optimized search performance for partial name matches, reducing query times by `>50%`.
+- Enhanced dashboard UI with better mobile responsiveness.
+
+## Bug Fixes
+
+- Fixed issue where uploaded photos failed to display in preview mode.
+- Resolved authentication token expiration during long sessions.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Launched advanced search filters by city and approximate age range.
+- Added letter writing tool with rich text formatting and template library.
+
+## Bug Fixes
+
+- Corrected search results pagination that skipped entries on subsequent pages.
+- Patched vulnerability in webhook notifications for capsule updates.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core time capsule creation with photo, video, and letter storage.
+- Basic parent search functionality using first/last name inputs.
+- Secure user authentication via email and password.
+
+## Breaking Changes
+
+- Updated API endpoints from `/v0/` to `/v1/` prefix. Update your integrations accordingly.
+
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to update your Parent Search integration to the latest version.
+
+<Steps>
+  <Step title="Check Current Version" icon="info">
+    Visit your dashboard at `https://parentsearch.org/dashboard` and navigate to Settings > Version.
+  </Step>
+  <Step title="Backup Data" icon="database">
+    Export your time capsules:
+    
+````bash
+curl -H "Authorization: Bearer YOUR_TOKEN" \
+  https://api.example.com/v1/capsules/export
+````
+  </Step>
+  <Step title="Update SDK" icon="download">
+    <Tabs>
+      <Tab title="npm" icon="package">
+````bash
+npm update parent-search-sdk@latest
+````
+      </Tab>
+      <Tab title="Python" icon="python">
+````bash
+pip install --upgrade parent-search-sdk
+````
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Test Integration" icon="play">
+    Verify search and upload endpoints work with the new API version.
+  </Step>
+</Steps>
+
+<Callout kind="info">
+  Always test updates in a staging environment first. Check the [full migration guide](/quickstart#upgrading) for detailed changes.
+</Callout>
+
+## Upcoming Changes
+
+Track our roadmap for future enhancements focused on security, usability, and expanded features.
+
+<Board title="Q4 2024 Roadmap">
+  <BoardColumn title="Planned" color="0" icon="calendar">
+    <BoardCard title="AI-powered name matching" description="Fuzzy search for varied spellings" icon="zap" dueDate="2024-12-15" />
+    <BoardCard title="Multi-language support" description="Translate capsules automatically" icon="globe" />
+  </BoardColumn>
+  <BoardColumn title="In Progress" color="1" icon="loader">
+    <BoardCard title="Webhook enhancements" description="Real-time notifications for searches" icon="bell" author="Engineering Team" />
+  </BoardColumn>
+  <BoardColumn title="Completed" color="2" icon="check-circle">
+    <BoardCard title="Mobile app beta" description="iOS/Android access to capsules" createdAt="2024-10-01" />
+  </BoardColumn>
+</Board>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Migration Guide" icon="book-open" href="/quickstart">
+    Detailed instructions for upgrading from v1.0 to v1.2.
+  </Card>
+  <Card title="API Reference" icon="code" href="/authentication">
+    Explore endpoints and authentication for time capsules.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Join our community forum for beta access to upcoming features. Report issues via the dashboard feedback form.
+</Callout>
